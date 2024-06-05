@@ -11,8 +11,8 @@ sudo apt install postgresql postgresql-server-dev-all -y
 echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
 sudo /etc/init.d/postgresql start
 echo "codespace ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/codespace
-sudo su - postgres -c "createuser -s odoo17" 2> /dev/null || true
-sudo -u postgres psql -c "ALTER USER odoo17 PASSWORD 'odoo';" 2> /dev/null || true
+sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
+sudo -u postgres psql -c "ALTER USER odoo PASSWORD 'odoo';" 2> /dev/null || true
 
 echo -e "\n---- Install required dependencies ----"
 sudo apt-get install git python3 python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev gdebi -y
@@ -30,4 +30,4 @@ source "odoo-venv/bin/activate"
 
 echo -e "\n---- Install python packages/requirements ----"
 pip install wheel
-pip install -r https://github.com/odoo/odoo/raw/17.0/requirements.txt
+pip install -r https://github.com/odoo/odoo/raw/16.0/requirements.txt
